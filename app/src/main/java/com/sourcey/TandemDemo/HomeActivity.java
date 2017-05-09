@@ -48,6 +48,7 @@ public class HomeActivity extends AppCompatActivity {
         //Display icon to open/ close sliding list
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
 
+
         //Set title
         setTitle(listSliding.get(0).getTitle());
         //item selected
@@ -89,6 +90,11 @@ public class HomeActivity extends AppCompatActivity {
         };
 
         drawerLayout.addDrawerListener(actionBarDrawerToggle);
+    }
+
+    @Override
+    public boolean onOptionsItemSelected(android.view.MenuItem item) {
+        return actionBarDrawerToggle.onOptionsItemSelected(item);
     }
 
 
