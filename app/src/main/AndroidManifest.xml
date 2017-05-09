@@ -22,10 +22,6 @@
         <activity
             android:name=".SignupActivity"
             android:label=" " />
-        <activity
-            android:name=".nav"
-            android:label="@string/title_activity_nav"
-            android:theme="@style/AppTheme.NoActionBar"></activity>
     </application>
 
 </manifest>
