@@ -1,0 +1,58 @@
+{
+  "project_info": {
+    "project_number": "421240724990",
+    "firebase_url": "https://nautical-app.firebaseio.com",
+    "project_id": "nautical-app",
+    "storage_bucket": "nautical-app.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:421240724990:android:a4b0a6895ea3d369",
+        "android_client_info": {
+          "package_name": "com.sourcey.materialloginexample"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "421240724990-a4v8liana9i2sn9vbnehfl01q723mh8j.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.sourcey.materialloginexample",
+            "certificate_hash": "6d7da9a437d52c886275d5d7ff77ff8cedee66af"
+          }
+        },
+        {
+          "client_id": "421240724990-gvbgvg3vribm3nj32tgo6kn1bhe46uj3.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAyOfeV2FBJyziCpGdWltURsMJFEgiOR_U"
+        },
+        {
+          "current_key": "AIzaSyDuicnzbTEGAmWsos7ynaNXX1g0RZrtcWI"
+        }
+      ],
+      "services": {
+        "analytics_service": {
+          "status": 1
+        },
+        "appinvite_service": {
+          "status": 2,
+          "other_platform_oauth_client": [
+            {
+              "client_id": "421240724990-gvbgvg3vribm3nj32tgo6kn1bhe46uj3.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        },
+        "ads_service": {
+          "status": 2
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

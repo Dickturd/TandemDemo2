@@ -11,6 +11,8 @@ import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ListView;
 
+import com.google.firebase.database.DatabaseReference;
+import com.google.firebase.database.FirebaseDatabase;
 import com.sourcey.TandemDemo.adapter.SlidingMenuAdapter;
 import com.sourcey.TandemDemo.fragment.Fragment1;
 import com.sourcey.TandemDemo.fragment.Fragment2;
@@ -27,21 +29,24 @@ public class HomeActivity extends AppCompatActivity {
     private ListView listViewSliding;
     private DrawerLayout drawerLayout;
     private ActionBarDrawerToggle actionBarDrawerToggle;
-
+    private DatabaseReference mDatabase;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_home);
 
+        mDatabase = FirebaseDatabase.getInstance().getReference();
         //Init component
         listViewSliding = (ListView) findViewById(R.id.lv_sliding_menu);
         drawerLayout = (DrawerLayout) findViewById(R.id.drawer_layout);
         listSliding = new ArrayList<>();
         //Add item for sliding list
-        listSliding.add(new ItemSlideMenu(R.drawable.ic_action_settings, "Seting"));
+        listSliding.add(new ItemSlideMenu(R.drawable.ic_action_settings, "Profile"));
+        listSliding.add(new ItemSlideMenu(R.drawable.ic_action_settings, "Home"));
+        listSliding.add(new ItemSlideMenu(R.drawable.ic_action_settings, "Settings"));
         listSliding.add(new ItemSlideMenu(R.drawable.ic_action_about, "About"));
-        listSliding.add(new ItemSlideMenu(R.mipmap.ic_launcher, "Android"));
+        listSliding.add(new ItemSlideMenu(R.drawable.ic_action_settings, "Log Out"));
         adapter = new SlidingMenuAdapter(this, listSliding);
         listViewSliding.setAdapter(adapter);
 
