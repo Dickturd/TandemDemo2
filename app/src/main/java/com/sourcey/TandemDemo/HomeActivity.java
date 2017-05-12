@@ -42,8 +42,8 @@ public class HomeActivity extends AppCompatActivity {
         drawerLayout = (DrawerLayout) findViewById(R.id.drawer_layout);
         listSliding = new ArrayList<>();
         //Add item for sliding list
-        listSliding.add(new ItemSlideMenu(R.drawable.ic_action_settings, "Profile"));
         listSliding.add(new ItemSlideMenu(R.drawable.ic_action_settings, "Home"));
+        listSliding.add(new ItemSlideMenu(R.drawable.ic_action_settings, "Profile"));
         listSliding.add(new ItemSlideMenu(R.drawable.ic_action_settings, "Settings"));
         listSliding.add(new ItemSlideMenu(R.drawable.ic_action_about, "About"));
         listSliding.add(new ItemSlideMenu(R.drawable.ic_action_settings, "Log Out"));
@@ -62,7 +62,7 @@ public class HomeActivity extends AppCompatActivity {
         drawerLayout.closeDrawer(listViewSliding);
 
         //Display fragment 1 when start
-        replaceFragment(0);
+        //replaceFragment(0);
         //Hanlde on item click
 
         listViewSliding.setOnItemClickListener(new AdapterView.OnItemClickListener() {
