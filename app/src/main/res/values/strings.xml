@@ -1,1 +1,5 @@
-<resources></resources>
+<resources>
+
+    <string name="button_Recent">Recent</string>
+    <string name="button_Matches">Matches</string>
+</resources>
