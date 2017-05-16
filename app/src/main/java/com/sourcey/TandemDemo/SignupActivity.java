@@ -11,6 +11,7 @@ import android.widget.EditText;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 
@@ -21,6 +22,7 @@ public class SignupActivity extends AppCompatActivity {
     private DatabaseReference mDatabase;
     private static final String TAG = "SignupActivity";
 
+    private FirebaseAuth firebaseauth;
 
 
 
@@ -39,6 +41,7 @@ public class SignupActivity extends AppCompatActivity {
         setContentView(R.layout.activity_signup);
         ButterKnife.bind(this);
 
+        firebaseauth = FirebaseAuth.getInstance();
 
 
         _signupButton.setOnClickListener(new View.OnClickListener() {
@@ -166,5 +169,7 @@ public class SignupActivity extends AppCompatActivity {
         }
 
         return valid;
+
+        firebaseauth.createUserWithEmailAndPassword()
     }
 }

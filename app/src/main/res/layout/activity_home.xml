@@ -9,7 +9,10 @@
 
     <include
         android:id="@+id/tToolbar"
-        layout="@layout/toolbar"></include>
+        layout="@layout/toolbar"
+        android:layout_height="wrap_content"
+        android:layout_width="match_parent"
+        />
 
 
 
