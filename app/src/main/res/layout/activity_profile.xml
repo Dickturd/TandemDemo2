@@ -6,14 +6,14 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
-    app:theme="@style/AppTheme2">
+    app:theme="@style/AppTheme2"
+    android:background="@drawable/ic_action_settings">
 
 
-    <include
-        android:id="@+id/tToolbar"
-        layout="@layout/toolbar"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content" />
+<include
+    layout="@layout/toolbar"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content" />
 
 
 </LinearLayout>

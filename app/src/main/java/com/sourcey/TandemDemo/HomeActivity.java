@@ -6,6 +6,7 @@ import android.support.design.widget.FloatingActionButton;
 import android.support.design.widget.Snackbar;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.support.v7.widget.ActionMenuView;
 import android.support.v7.widget.Toolbar;
 import android.view.Menu;
 import android.view.MenuInflater;
@@ -14,6 +15,7 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ImageView;
+import android.widget.Toast;
 
 import butterknife.Bind;
 
@@ -35,26 +37,38 @@ public class HomeActivity extends AppCompatActivity {
 
 
 
+       ImageView profileActivity = (ImageView) toolbar.findViewById(R.id.action_profile);
+       ImageView cnectActivity = (ImageView) toolbar.findViewById(R.id.action_msg);
 
-
-
-       ImageView profile = (ImageView) findViewById(R.id.action_profile);
-
-       profile.setOnClickListener(new View.OnClickListener() {
+        profileActivity.setOnClickListener(new View.OnClickListener() {
 
             @Override
             public void onClick(View v) {
-
                 Intent profileActivity = new Intent(HomeActivity.this, ProfileActivity.class);
                 startActivity(profileActivity);
                 finish();
                 overridePendingTransition(R.anim.push_left_in, R.anim.push_left_out);
             }
+
         });
+        cnectActivity.setOnClickListener(new View.OnClickListener() {
+
+            @Override
+            public void onClick(View v) {
+                Intent knct = new Intent(HomeActivity.this, ConnectionsActivity.class);
+                startActivity(knct);
+                finish();
+                overridePendingTransition(R.anim.push_left_in, R.anim.push_left_out);
+            }
+
+        });
+
 
     }
 
-    /*
+
+
+/*
     @Override
     public boolean onCreateOptionsMenu(Menu menu)
     {

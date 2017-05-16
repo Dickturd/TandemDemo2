@@ -7,6 +7,8 @@ import android.support.v7.widget.Toolbar;
 import android.view.Menu;
 import android.view.MenuInflater;
 import android.view.MenuItem;
+import android.view.View;
+import android.widget.ImageView;
 
 
 public class ProfileActivity extends AppCompatActivity {
@@ -21,10 +23,39 @@ public class ProfileActivity extends AppCompatActivity {
         toolbar = (Toolbar) findViewById(R.id.tToolbar);
         if (toolbar != null)
             setSupportActionBar(toolbar);
+
+        ImageView homeActivity = (ImageView) toolbar.findViewById(R.id.action_home);
+        ImageView cnectActivity = (ImageView) toolbar.findViewById(R.id.action_msg);
+
+        homeActivity.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent profileActivity = new Intent(ProfileActivity.this, HomeActivity.class);
+                startActivity(profileActivity);
+                finish();
+                overridePendingTransition(R.anim.push_left_in, R.anim.push_left_out);
+            }
+
+        });
+        cnectActivity.setOnClickListener(new View.OnClickListener() {
+
+            @Override
+            public void onClick(View v) {
+                Intent knct = new Intent(ProfileActivity.this, ConnectionsActivity.class);
+                startActivity(knct);
+                finish();
+                overridePendingTransition(R.anim.push_left_in, R.anim.push_left_out);
+            }
+
+        });
+
+
+
+
     }
 
-
-   /* @Override
+/*
+    @Override
     public boolean onCreateOptionsMenu(Menu menu)
     {
         MenuInflater menuInflater = getMenuInflater();

@@ -6,6 +6,8 @@
     android:orientation="vertical"
     android:weightSum="1">
 
+
+
     <android.support.v7.widget.Toolbar
         android:id="@+id/tToolbar"
         android:layout_width="match_parent"
@@ -13,7 +15,8 @@
         android:background="@color/colorPrimary"
 
 
-        app:theme="@style/AppThemePenis">
+        app:theme="@style/AppThemePenis"
+        android:weightSum="1">
 
 
         <ImageView
@@ -21,22 +24,26 @@
             android:layout_width="48dp"
             android:layout_height="wrap_content"
             android:layout_gravity="start"
-            app:srcCompat="@drawable/ic_action_settings" />
-
+            app:srcCompat="@drawable/ic_action_settings"
+            android:clickable="true"
+            />
 
         <ImageView
             android:id="@+id/action_home"
             android:layout_width="48dp"
             android:layout_height="wrap_content"
             android:layout_gravity="center"
-            app:srcCompat="@drawable/ic_action_settings" />
+            app:srcCompat="@drawable/ic_action_settings"
+            />
 
         <ImageView
             android:id="@+id/action_msg"
             android:layout_width="48dp"
             android:layout_height="wrap_content"
             android:layout_gravity="end"
-            app:srcCompat="@drawable/ic_action_settings" />
+            app:srcCompat="@drawable/ic_action_settings"
+            />
+
 
     </android.support.v7.widget.Toolbar>
 
