@@ -2,6 +2,8 @@ package com.sourcey.TandemDemo;
 
 import android.content.Intent;
 import android.provider.ContactsContract;
+import android.support.design.widget.FloatingActionButton;
+import android.support.design.widget.Snackbar;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.support.v7.widget.Toolbar;
@@ -11,6 +13,7 @@ import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.ImageView;
 
 import butterknife.Bind;
 
@@ -27,16 +30,31 @@ public class HomeActivity extends AppCompatActivity {
         setContentView(R.layout.activity_home);
 
         toolbar = (Toolbar) findViewById(R.id.tToolbar);
-        setSupportActionBar(toolbar);
+        if (toolbar != null)
+            setSupportActionBar(toolbar);
 
 
 
 
 
 
+       ImageView profile = (ImageView) findViewById(R.id.action_profile);
+
+       profile.setOnClickListener(new View.OnClickListener() {
+
+            @Override
+            public void onClick(View v) {
+
+                Intent profileActivity = new Intent(HomeActivity.this, ProfileActivity.class);
+                startActivity(profileActivity);
+                finish();
+                overridePendingTransition(R.anim.push_left_in, R.anim.push_left_out);
+            }
+        });
 
     }
 
+    /*
     @Override
     public boolean onCreateOptionsMenu(Menu menu)
     {
@@ -72,5 +90,5 @@ public class HomeActivity extends AppCompatActivity {
         }
 
         return true;
-    }
+    }*/
 }

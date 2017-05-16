@@ -22,14 +22,14 @@
     </style>
 
 
-    <style name="AppThemePenis" parent="Theme.AppCompat.NoActionBar">
+    <style name="AppThemePenis" parent="Theme.AppCompat.Light.NoActionBar">
         <item name="android:colorPrimary">@color/primary</item>
         <item name="android:colorPrimaryDark">@color/primary_dark</item>
         <item name="android:colorAccent">@color/accent</item>
         <item name="android:navigationBarColor">@color/primary_dark</item>
         <item name="android:displayOptions">disableHome</item>
-        <item name="android:windowActionBar">false</item>
         <item name="android:windowNoTitle">true</item>
+        <item name="windowActionBar">false</item>
     </style>
 
 </resources>

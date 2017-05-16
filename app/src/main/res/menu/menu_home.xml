@@ -4,27 +4,7 @@
     tools:context="com.sartainstudios.contacts.ContactsView">
 
 
-    <item
-        android:id="@+id/action_profile"
-        android:icon="@drawable/ic_action_settings"
-        android:title="Dildo"
-        app:showAsAction="always"
 
-        />
-
-
-    <item
-        android:id="@+id/action_home"
-        android:icon="@drawable/ic_action_settings"
-        android:title="buttcrack"
-        app:showAsAction="always" />
-
-
-    <item
-        android:id="@+id/action_msg"
-        android:icon="@drawable/ic_action_settings"
-        android:title="Penis"
-        app:showAsAction="always" />
 
 
 </menu>

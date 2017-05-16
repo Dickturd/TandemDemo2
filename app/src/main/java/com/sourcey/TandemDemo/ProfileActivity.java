@@ -19,11 +19,12 @@ public class ProfileActivity extends AppCompatActivity {
         setContentView(R.layout.activity_profile);
 
         toolbar = (Toolbar) findViewById(R.id.tToolbar);
-        setSupportActionBar(toolbar);
+        if (toolbar != null)
+            setSupportActionBar(toolbar);
     }
 
 
-    @Override
+   /* @Override
     public boolean onCreateOptionsMenu(Menu menu)
     {
         MenuInflater menuInflater = getMenuInflater();
@@ -58,5 +59,5 @@ public class ProfileActivity extends AppCompatActivity {
         }
 
         return true;
-    }
+    }*/
 }
