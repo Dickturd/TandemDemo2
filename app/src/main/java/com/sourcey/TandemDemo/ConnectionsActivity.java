@@ -17,7 +17,7 @@ public class ConnectionsActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
 
 
-        setContentView(R.layout.activity_home);
+        setContentView(R.layout.activity_connections);
 
         toolbar = (Toolbar) findViewById(R.id.tToolbar);
         if (toolbar != null)
