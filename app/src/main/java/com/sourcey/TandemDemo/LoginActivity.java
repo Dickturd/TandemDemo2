@@ -12,6 +12,9 @@ import android.widget.EditText;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.google.firebase.database.DatabaseReference;
+import com.google.firebase.database.FirebaseDatabase;
+
 import butterknife.ButterKnife;
 import butterknife.Bind;
 
@@ -71,6 +74,11 @@ public class LoginActivity extends AppCompatActivity {
         String password = _passwordText.getText().toString();
 
         // TODO: Implement your own authentication logic here.
+        DatabaseReference myRef = FirebaseDatabase.getInstance().getReference();
+
+
+
+
 
         new android.os.Handler().postDelayed(
                 new Runnable() {

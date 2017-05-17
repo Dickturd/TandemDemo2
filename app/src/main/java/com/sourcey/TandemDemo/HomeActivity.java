@@ -47,7 +47,7 @@ public class HomeActivity extends AppCompatActivity {
                 Intent profileActivity = new Intent(HomeActivity.this, ProfileActivity.class);
                 startActivity(profileActivity);
                 finish();
-                overridePendingTransition(R.anim.push_left_in, R.anim.push_left_out);
+                overridePendingTransition(R.anim.push_right_in, R.anim.push_right_out);
             }
 
         });

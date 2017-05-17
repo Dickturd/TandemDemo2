@@ -6,7 +6,8 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
-    app:theme="@style/AppTheme2">
+    app:theme="@style/AppTheme2"
+    android:background="@drawable/ic_action_settings">
 
 
     <include

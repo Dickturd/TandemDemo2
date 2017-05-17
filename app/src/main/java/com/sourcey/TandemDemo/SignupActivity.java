@@ -19,6 +19,8 @@ import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 
+import java.util.HashMap;
+
 import butterknife.ButterKnife;
 import butterknife.Bind;
 
@@ -26,7 +28,7 @@ public class SignupActivity extends AppCompatActivity {
     private DatabaseReference mDatabase;
     private static final String TAG = "SignupActivity";
 
-    private FirebaseAuth firebaseauth;
+
 
 
 
@@ -44,9 +46,6 @@ public class SignupActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_signup);
         ButterKnife.bind(this);
-
-        firebaseauth = FirebaseAuth.getInstance();
-
 
         _signupButton.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -87,13 +86,23 @@ public class SignupActivity extends AppCompatActivity {
         progressDialog.setMessage("Creating Account...");
         progressDialog.show();
 
-        String name = _nameText.getText().toString();
-        String address = _addressText.getText().toString();
-        String email = _emailText.getText().toString();
-        String password = _passwordText.getText().toString();
-        String reEnterPassword = _reEnterPasswordText.getText().toString();
+        String userName = _nameText.getText().toString().trim();
+        String address = _addressText.getText().toString().trim();
+        String email = _emailText.getText().toString().trim();
+        String password = _passwordText.getText().toString().trim();
+        String reEnterPassword = _reEnterPasswordText.getText().toString().trim();
 
         // TODO: Implement your own signup logic here.
+        mDatabase= FirebaseDatabase.getInstance().getReference();
+
+        HashMap<String, String> userData = new HashMap<>();
+        userData.put("Name",userName);
+        userData.put("Email",email);
+        userData.put("Password",password);
+
+        mDatabase.push().setValue(userData);
+
+
 
         new android.os.Handler().postDelayed(
                 new Runnable() {
@@ -107,7 +116,7 @@ public class SignupActivity extends AppCompatActivity {
                 }, 3000);
 
 
-       // mDatabase.child("Name").setValue("Max");
+
 
     }
 
@@ -116,7 +125,10 @@ public class SignupActivity extends AppCompatActivity {
         _signupButton.setEnabled(true);
         setResult(RESULT_OK, null);
 
-        finish();
+        Intent intent = new Intent(getApplicationContext(),HomeActivity.class);
+        startActivity(intent);
+
+        overridePendingTransition(R.anim.push_left_in, R.anim.push_left_out);
 
     }
 
@@ -174,18 +186,5 @@ public class SignupActivity extends AppCompatActivity {
 
         return valid;
 
-       /* firebaseauth.createUserWithEmailAndPassword(email, password)
-                .addOnCompleteListener(this, new OnCompleteListener<AuthResult>(){
-
-
-                    public void OnComplete(@NonNull Task<AuthResult> task){
-                        if (task.isSuccessful()){
-                            Toast.makeText(SignupActivity.this, "Registered Successfully!");
-                        }
-                        else {
-                            Toast.makeText(MainActivity.this, "Registration Unsuccessful");
-                        }
-                    }
-                }*/
     }
 }

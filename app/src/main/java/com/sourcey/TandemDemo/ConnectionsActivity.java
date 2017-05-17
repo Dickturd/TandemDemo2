@@ -34,7 +34,7 @@ public class ConnectionsActivity extends AppCompatActivity {
                 Intent profileActivity = new Intent(ConnectionsActivity.this, ProfileActivity.class);
                 startActivity(profileActivity);
                 finish();
-                overridePendingTransition(R.anim.push_left_in, R.anim.push_left_out);
+                overridePendingTransition(R.anim.push_right_in, R.anim.push_right_out);
             }
 
         });
@@ -45,7 +45,7 @@ public class ConnectionsActivity extends AppCompatActivity {
                 Intent home = new Intent(ConnectionsActivity.this, HomeActivity.class);
                 startActivity(home);
                 finish();
-                overridePendingTransition(R.anim.push_left_in, R.anim.push_left_out);
+                overridePendingTransition(R.anim.push_right_in, R.anim.push_right_out);
             }
 
         });
