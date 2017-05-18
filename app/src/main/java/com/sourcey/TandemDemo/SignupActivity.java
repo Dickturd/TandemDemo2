@@ -5,6 +5,7 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.support.annotation.NonNull;
 import android.support.v7.app.AppCompatActivity;
+import android.text.TextUtils;
 import android.util.Log;
 import android.view.View;
 import android.widget.Button;
@@ -29,7 +30,8 @@ public class SignupActivity extends AppCompatActivity {
     private static final String TAG = "SignupActivity";
 
 
-
+    private FirebaseAuth mAuth;
+    private FirebaseAuth.AuthStateListener mAuthListener;
 
 
 
@@ -46,6 +48,9 @@ public class SignupActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_signup);
         ButterKnife.bind(this);
+
+        mDatabase= FirebaseDatabase.getInstance().getReference().child("Users");
+        mAuth = FirebaseAuth.getInstance();
 
         _signupButton.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -93,15 +98,22 @@ public class SignupActivity extends AppCompatActivity {
         String reEnterPassword = _reEnterPasswordText.getText().toString().trim();
 
         // TODO: Implement your own signup logic here.
-        mDatabase= FirebaseDatabase.getInstance().getReference();
 
-        HashMap<String, String> userData = new HashMap<>();
-        userData.put("Name",userName);
-        userData.put("Email",email);
-        userData.put("Password",password);
 
-        mDatabase.push().setValue(userData);
+        mAuth.createUserWithEmailAndPassword(email,password).addOnCompleteListener(new OnCompleteListener<AuthResult>() {
+            @Override
+            public void onComplete(@NonNull Task<AuthResult> task) {
 
+                if (task.isSuccessful()){
+                    String user_id = mAuth.getCurrentUser().getUid();
+
+                   DatabaseReference current_user = mDatabase.child(user_id);
+                    current_user.child("name").setValue(_nameText);
+                    current_user.child("image").setValue("default");
+                }
+
+            }
+        });
 
 
         new android.os.Handler().postDelayed(
