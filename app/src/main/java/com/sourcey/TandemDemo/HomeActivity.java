@@ -17,14 +17,16 @@ import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.Toast;
 
+import com.google.firebase.auth.FirebaseAuth;
+
 import butterknife.Bind;
 
 public class HomeActivity extends AppCompatActivity {
 
 
     private Toolbar toolbar;
+    private FirebaseAuth mAuth;
 
-    @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
 
@@ -36,9 +38,24 @@ public class HomeActivity extends AppCompatActivity {
             setSupportActionBar(toolbar);
 
 
+        mAuth = FirebaseAuth.getInstance();
 
        ImageView profileActivity = (ImageView) toolbar.findViewById(R.id.action_profile);
        ImageView cnectActivity = (ImageView) toolbar.findViewById(R.id.action_msg);
+        Button logout = (Button) findViewById(R.id.logout_btn);
+
+
+        logout.setOnClickListener(new View.OnClickListener() {
+
+            @Override
+            public void onClick(View v) {
+                mAuth.signOut();
+                startActivity( new Intent(HomeActivity.this, LoginActivity.class));
+                finish();
+                overridePendingTransition(R.anim.push_right_in, R.anim.push_right_out);
+            }
+
+        });
 
         profileActivity.setOnClickListener(new View.OnClickListener() {
 

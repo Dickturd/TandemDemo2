@@ -8,13 +8,18 @@ import android.view.Menu;
 import android.view.MenuInflater;
 import android.view.MenuItem;
 import android.view.View;
+import android.widget.Button;
 import android.widget.ImageView;
+
+import com.google.firebase.auth.FirebaseAuth;
 
 
 public class ProfileActivity extends AppCompatActivity {
 
 
     private Toolbar toolbar;
+    private FirebaseAuth mAuth;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -24,8 +29,23 @@ public class ProfileActivity extends AppCompatActivity {
         if (toolbar != null)
             setSupportActionBar(toolbar);
 
+        mAuth = FirebaseAuth.getInstance();
+
         ImageView homeActivity = (ImageView) toolbar.findViewById(R.id.action_home);
         ImageView cnectActivity = (ImageView) toolbar.findViewById(R.id.action_msg);
+        Button logout = (Button) findViewById(R.id.logout_btn2);
+
+        logout.setOnClickListener(new View.OnClickListener() {
+
+            @Override
+            public void onClick(View v) {
+                mAuth.signOut();
+                startActivity( new Intent(ProfileActivity.this, LoginActivity.class));
+                finish();
+                overridePendingTransition(R.anim.push_right_in, R.anim.push_right_out);
+            }
+
+        });
 
         homeActivity.setOnClickListener(new View.OnClickListener() {
             @Override

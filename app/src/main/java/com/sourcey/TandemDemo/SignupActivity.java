@@ -49,8 +49,9 @@ public class SignupActivity extends AppCompatActivity {
         setContentView(R.layout.activity_signup);
         ButterKnife.bind(this);
 
-        mDatabase= FirebaseDatabase.getInstance().getReference().child("Users");
         mAuth = FirebaseAuth.getInstance();
+        mDatabase= FirebaseDatabase.getInstance().getReference().child("Users");
+
 
         _signupButton.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -91,10 +92,10 @@ public class SignupActivity extends AppCompatActivity {
         progressDialog.setMessage("Creating Account...");
         progressDialog.show();
 
-        String userName = _nameText.getText().toString().trim();
+        final String userName = _nameText.getText().toString().trim();
         String address = _addressText.getText().toString().trim();
-        String email = _emailText.getText().toString().trim();
-        String password = _passwordText.getText().toString().trim();
+        final String email = _emailText.getText().toString().trim();
+        final String password = _passwordText.getText().toString().trim();
         String reEnterPassword = _reEnterPasswordText.getText().toString().trim();
 
         // TODO: Implement your own signup logic here.
@@ -103,13 +104,22 @@ public class SignupActivity extends AppCompatActivity {
         mAuth.createUserWithEmailAndPassword(email,password).addOnCompleteListener(new OnCompleteListener<AuthResult>() {
             @Override
             public void onComplete(@NonNull Task<AuthResult> task) {
-
+                boolean test = task.isSuccessful();
                 if (task.isSuccessful()){
                     String user_id = mAuth.getCurrentUser().getUid();
 
                    DatabaseReference current_user = mDatabase.child(user_id);
-                    current_user.child("name").setValue(_nameText);
-                    current_user.child("image").setValue("default");
+                    /*current_user.child("name").setValue(_nameText);
+                    current_user.child("image").setValue("default");*/
+
+                    HashMap<String, String> users = new HashMap<String, String>();
+                    users.put("Name", userName);
+                    users.put("Email", email);
+                    users.put("Password", password);
+
+                    current_user.setValue(users);
+                    progressDialog.dismiss();
+                    Log.w(TAG, "signInWithEmail:failed", task.getException());
                 }
 
             }
