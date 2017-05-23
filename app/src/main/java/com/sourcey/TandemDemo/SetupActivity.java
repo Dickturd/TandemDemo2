@@ -119,7 +119,7 @@ public class SetupActivity extends AppCompatActivity{
                 Exception error = result.getError();
             }
         }
-        }
+
     }
 
 
