@@ -109,8 +109,7 @@ public class SignupActivity extends AppCompatActivity {
                     String user_id = mAuth.getCurrentUser().getUid();
 
                    DatabaseReference current_user = mDatabase.child(user_id);
-                    /*current_user.child("name").setValue(_nameText);
-                    current_user.child("image").setValue("default");*/
+
 
                     HashMap<String, String> users = new HashMap<String, String>();
                     users.put("Name", userName);
@@ -192,14 +191,14 @@ public class SignupActivity extends AppCompatActivity {
         }
 
 
-        if (password.isEmpty() || password.length() < 4 || password.length() > 10) {
-            _passwordText.setError("between 4 and 10 alphanumeric characters");
+        if (password.isEmpty() || password.length() < 4 || password.length() > 25) {
+            _passwordText.setError("between 4 and 25 alphanumeric characters");
             valid = false;
         } else {
             _passwordText.setError(null);
         }
 
-        if (reEnterPassword.isEmpty() || reEnterPassword.length() < 4 || reEnterPassword.length() > 10 || !(reEnterPassword.equals(password))) {
+        if (reEnterPassword.isEmpty() || reEnterPassword.length() < 4 || reEnterPassword.length() > 25 || !(reEnterPassword.equals(password))) {
             _reEnterPasswordText.setError("Password Do not match");
             valid = false;
         } else {
