@@ -14,6 +14,7 @@ import android.widget.ImageButton;
 
 import com.google.android.gms.tasks.OnSuccessListener;
 import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.auth.FirebaseUser;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.storage.FirebaseStorage;
@@ -78,6 +79,9 @@ public class SetupActivity extends AppCompatActivity{
     private void startSetupAccount() {
 
         final String name = mNameField.getText().toString().trim();
+
+        FirebaseUser user = mAuth.getCurrentUser();
+
         final String user_id = mAuth.getCurrentUser().getUid();
 
         if (!TextUtils.isEmpty(name) && mImageUri != null) {
