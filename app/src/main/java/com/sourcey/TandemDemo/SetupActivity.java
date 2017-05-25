@@ -22,10 +22,13 @@ import com.google.firebase.storage.FirebaseStorage;
 import com.google.firebase.storage.StorageReference;
 import com.google.firebase.storage.UploadTask;
 import com.sourcey.TandemDemo.R;
+import com.sourcey.TandemDemo.model.GettoknowActivity;
 import com.theartofdev.edmodo.cropper.CropImage;
 import com.theartofdev.edmodo.cropper.CropImageView;
 
 import org.w3c.dom.Text;
+
+import butterknife.Bind;
 
 
 /**
@@ -41,6 +44,7 @@ public class SetupActivity extends AppCompatActivity{
     private FirebaseAuth mAuth;
     private StorageReference mStorageImage;
     private ProgressDialog  mProgress;
+
 
     private static final int GALLERY_REQUEST = 1;
 
@@ -64,6 +68,9 @@ public class SetupActivity extends AppCompatActivity{
             @Override
             public void onClick(View v) {
                 startSetupAccount();
+                startActivity( new Intent(SetupActivity.this, GettoknowActivity.class));
+                finish();
+                overridePendingTransition(R.anim.push_right_in, R.anim.push_right_out);
             }
         });
 
@@ -78,6 +85,10 @@ public class SetupActivity extends AppCompatActivity{
             }
         });
     }
+
+
+
+
 
     private void startSetupAccount() {
 

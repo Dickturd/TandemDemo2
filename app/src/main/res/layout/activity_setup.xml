@@ -25,7 +25,7 @@
         android:layout_below="@+id/profileimagebutton"
         android:layout_marginTop="32dp"
         android:ems="10"
-        android:hint="Enter Display Name"
+        android:hint="Enter Username"
         android:inputType="textPersonName" />
 
     <Button
@@ -33,7 +33,8 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_alignParentBottom="true"
-        android:layout_centerHorizontal="true"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true"
         android:text="Next" />
 
     <TextView
@@ -45,36 +46,6 @@
         android:layout_marginTop="18dp"
         android:text="ACCOUNT SETUP" />
 
-    <Spinner
-        android:id="@+id/year_spinner"
-        android:layout_width="40dp"
-        android:layout_height="wrap_content"
-        android:layout_alignTop="@+id/day_spinner"
-        android:layout_marginLeft="10dp"
-        android:layout_marginStart="10dp"
-        android:layout_toEndOf="@+id/day_spinner"
-        android:layout_toRightOf="@+id/day_spinner"
-        android:padding="8dp" />
-
-    <Spinner
-        android:id="@+id/day_spinner"
-        android:layout_width="40dp"
-        android:layout_height="wrap_content"
-        android:layout_alignTop="@+id/month_spinner"
-        android:layout_marginLeft="10dp"
-        android:layout_marginStart="10dp"
-        android:layout_toEndOf="@+id/month_spinner"
-        android:layout_toRightOf="@+id/month_spinner" />
-
-    <Spinner
-        android:id="@+id/month_spinner"
-        android:layout_width="40dp"
-        android:layout_height="wrap_content"
-        android:layout_alignParentLeft="true"
-        android:layout_alignParentStart="true"
-        android:layout_below="@+id/textView2"
-        android:layout_marginTop="8dp" />
-
     <TextView
         android:id="@+id/textView2"
         android:layout_width="wrap_content"
@@ -84,5 +55,25 @@
         android:layout_below="@+id/setupusername"
         android:layout_marginTop="22dp"
         android:text="Date of Birth" />
+
+    <EditText
+        android:id="@+id/editText2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:ems="10"
+        android:inputType="date"
+        android:layout_below="@+id/textView2"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true" />
+
+    <CheckBox
+        android:id="@+id/checkBox"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="I have read and agreed to  the Term of Service."
+        android:layout_above="@+id/setupSubmit"
+        android:layout_centerHorizontal="true"
+        android:layout_marginBottom="13dp" />
+
 
 </RelativeLayout>
