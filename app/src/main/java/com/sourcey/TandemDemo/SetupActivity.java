@@ -5,7 +5,6 @@ import android.content.Intent;
 
 import android.net.Uri;
 import android.os.Bundle;
-import android.provider.ContactsContract;
 import android.support.v7.app.AppCompatActivity;
 import android.text.TextUtils;
 import android.view.View;
@@ -21,14 +20,8 @@ import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.storage.FirebaseStorage;
 import com.google.firebase.storage.StorageReference;
 import com.google.firebase.storage.UploadTask;
-import com.sourcey.TandemDemo.R;
-import com.sourcey.TandemDemo.model.GettoknowActivity;
 import com.theartofdev.edmodo.cropper.CropImage;
 import com.theartofdev.edmodo.cropper.CropImageView;
-
-import org.w3c.dom.Text;
-
-import butterknife.Bind;
 
 
 /**
@@ -38,7 +31,6 @@ import butterknife.Bind;
 public class SetupActivity extends AppCompatActivity{
 
     private ImageButton mSetupImagebtn;
-    private EditText mNameField;
     private Button mSubmitBtn;
     private Uri mImageUri = null;
     private FirebaseAuth mAuth;
@@ -56,7 +48,6 @@ public class SetupActivity extends AppCompatActivity{
         setContentView(R.layout.activity_setup);
 
         mSetupImagebtn = (ImageButton) findViewById(R.id.profileimagebutton);
-        mNameField = (EditText) findViewById(R.id.setupusername);
         mSubmitBtn = (Button) findViewById(R.id.setupSubmit);
         mProgress = new ProgressDialog(this);
 
@@ -68,9 +59,9 @@ public class SetupActivity extends AppCompatActivity{
             @Override
             public void onClick(View v) {
                 startSetupAccount();
-                startActivity( new Intent(SetupActivity.this, GettoknowActivity.class));
+                startActivity( new Intent(SetupActivity.this, GetToKnowActivity.class));
                 finish();
-                overridePendingTransition(R.anim.push_right_in, R.anim.push_right_out);
+                overridePendingTransition(R.anim.push_left_in, R.anim.push_left_out);
             }
         });
 
@@ -92,13 +83,11 @@ public class SetupActivity extends AppCompatActivity{
 
     private void startSetupAccount() {
 
-        final String name = mNameField.getText().toString().trim();
-
         FirebaseUser user = mAuth.getCurrentUser();
 
         final String user_id = mAuth.getCurrentUser().getUid();
 
-        if (!TextUtils.isEmpty(name) && mImageUri != null) {
+        if (mImageUri != null) {
 
             //For acutal end of setup
             mProgress.setMessage("Finishing Setup...");
@@ -111,7 +100,7 @@ public class SetupActivity extends AppCompatActivity{
 
                     @SuppressWarnings("VisibleForTests") Uri downloadUrl = taskSnapshot.getDownloadUrl();
 
-                    mDatabaseUsers.child(user_id).child("name").setValue(name);
+
                     mDatabaseUsers.child(user_id).child("image").setValue(downloadUrl.toString());
                 }
             });
