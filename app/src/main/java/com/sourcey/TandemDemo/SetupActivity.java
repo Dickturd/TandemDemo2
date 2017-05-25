@@ -1,5 +1,6 @@
 package com.sourcey.TandemDemo;
 
+import android.app.ProgressDialog;
 import android.content.Intent;
 
 import android.net.Uri;
@@ -39,6 +40,7 @@ public class SetupActivity extends AppCompatActivity{
     private Uri mImageUri = null;
     private FirebaseAuth mAuth;
     private StorageReference mStorageImage;
+    private ProgressDialog  mProgress;
 
     private static final int GALLERY_REQUEST = 1;
 
@@ -52,6 +54,7 @@ public class SetupActivity extends AppCompatActivity{
         mSetupImagebtn = (ImageButton) findViewById(R.id.profileimagebutton);
         mNameField = (EditText) findViewById(R.id.setupusername);
         mSubmitBtn = (Button) findViewById(R.id.setupSubmit);
+        mProgress = new ProgressDialog(this);
 
         mStorageImage = FirebaseStorage.getInstance().getReference().child("Profile_images");
         mAuth = FirebaseAuth.getInstance();
@@ -86,6 +89,10 @@ public class SetupActivity extends AppCompatActivity{
 
         if (!TextUtils.isEmpty(name) && mImageUri != null) {
 
+            //For acutal end of setup
+            mProgress.setMessage("Finishing Setup...");
+            mProgress.show();
+            // ends here
             StorageReference filepath = mStorageImage.child(mImageUri.getLastPathSegment());
             filepath.putFile(mImageUri).addOnSuccessListener(new OnSuccessListener<UploadTask.TaskSnapshot>() {
                 @Override
@@ -94,7 +101,7 @@ public class SetupActivity extends AppCompatActivity{
                     @SuppressWarnings("VisibleForTests") Uri downloadUrl = taskSnapshot.getDownloadUrl();
 
                     mDatabaseUsers.child(user_id).child("name").setValue(name);
-                    mDatabaseUsers.child(user_id).child("image").setValue(downloadUrl);
+                    mDatabaseUsers.child(user_id).child("image").setValue(downloadUrl.toString());
                 }
             });
 
@@ -118,7 +125,8 @@ public class SetupActivity extends AppCompatActivity{
         if (requestCode == CropImage.CROP_IMAGE_ACTIVITY_REQUEST_CODE) {
             CropImage.ActivityResult result = CropImage.getActivityResult(data);
             if (resultCode == RESULT_OK) {
-                Uri resultUri = result.getUri();
+                mImageUri = result.getUri();
+                mSetupImagebtn.setImageURI(mImageUri);
             } else if (resultCode == CropImage.CROP_IMAGE_ACTIVITY_RESULT_ERROR_CODE) {
                 Exception error = result.getError();
             }

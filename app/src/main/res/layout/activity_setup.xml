@@ -1,16 +1,18 @@
 <?xml version="1.0" encoding="utf-8"?>
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    android:orientation="vertical" android:layout_width="match_parent"
-    android:layout_height="match_parent">
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:padding="10dp">
 
     <ImageButton
         android:id="@+id/profileimagebutton"
         android:layout_width="200dp"
         android:layout_height="200dp"
-        android:layout_alignParentTop="true"
+        android:layout_below="@+id/textView"
         android:layout_centerHorizontal="true"
-        android:layout_marginTop="15dp"
+        android:layout_marginTop="12dp"
         android:scaleType="centerCrop"
         app:srcCompat="@drawable/dummy" />
 
@@ -18,8 +20,10 @@
         android:id="@+id/setupusername"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true"
         android:layout_below="@+id/profileimagebutton"
-        android:layout_marginTop="30dp"
+        android:layout_marginTop="32dp"
         android:ems="10"
         android:hint="Enter Display Name"
         android:inputType="textPersonName" />
@@ -31,4 +35,54 @@
         android:layout_alignParentBottom="true"
         android:layout_centerHorizontal="true"
         android:text="Next" />
+
+    <TextView
+        android:id="@+id/textView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentTop="true"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="18dp"
+        android:text="ACCOUNT SETUP" />
+
+    <Spinner
+        android:id="@+id/year_spinner"
+        android:layout_width="40dp"
+        android:layout_height="wrap_content"
+        android:layout_alignTop="@+id/day_spinner"
+        android:layout_marginLeft="10dp"
+        android:layout_marginStart="10dp"
+        android:layout_toEndOf="@+id/day_spinner"
+        android:layout_toRightOf="@+id/day_spinner"
+        android:padding="8dp" />
+
+    <Spinner
+        android:id="@+id/day_spinner"
+        android:layout_width="40dp"
+        android:layout_height="wrap_content"
+        android:layout_alignTop="@+id/month_spinner"
+        android:layout_marginLeft="10dp"
+        android:layout_marginStart="10dp"
+        android:layout_toEndOf="@+id/month_spinner"
+        android:layout_toRightOf="@+id/month_spinner" />
+
+    <Spinner
+        android:id="@+id/month_spinner"
+        android:layout_width="40dp"
+        android:layout_height="wrap_content"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true"
+        android:layout_below="@+id/textView2"
+        android:layout_marginTop="8dp" />
+
+    <TextView
+        android:id="@+id/textView2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true"
+        android:layout_below="@+id/setupusername"
+        android:layout_marginTop="22dp"
+        android:text="Date of Birth" />
+
 </RelativeLayout>
