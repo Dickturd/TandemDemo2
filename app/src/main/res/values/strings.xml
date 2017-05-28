@@ -11,5 +11,6 @@
     <string name="title_section2">Chats</string>
     <string name="title_section3">Contacts</string>
     <string name="hello_world">Hello world!</string>
+    <string name="title_activity_forgot">activity_forgot</string>
 
 </resources>
