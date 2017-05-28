@@ -1,4 +1,4 @@
-package com.sourcey.TandemDemo;
+package com.sourcey.NauticalDemo;
 
 
 import android.content.Intent;

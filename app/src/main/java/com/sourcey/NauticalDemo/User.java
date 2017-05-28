@@ -1,4 +1,4 @@
-package com.sourcey.TandemDemo;
+package com.sourcey.NauticalDemo;
 
 /**
  * Created by Peter on 5/20/2017.

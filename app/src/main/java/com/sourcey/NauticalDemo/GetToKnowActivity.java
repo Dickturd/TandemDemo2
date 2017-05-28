@@ -1,4 +1,4 @@
-package com.sourcey.TandemDemo;
+package com.sourcey.NauticalDemo;
 
 import android.app.ProgressDialog;
 import android.content.Intent;

@@ -1,4 +1,4 @@
-package com.sourcey.TandemDemo.model;
+package com.sourcey.NauticalDemo.model;
 
 /**
  * Created by madhur on 17/01/15.
