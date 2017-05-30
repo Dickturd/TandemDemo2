@@ -15,6 +15,14 @@
       },
       "oauth_client": [
         {
+          "client_id": "722476780767-r8e59r95is20oevrqb4k3rqbg30g36me.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.sourcey.materialloginexample",
+            "certificate_hash": "58abdf3c75742b79e2164a8c6e39c09c75429dad"
+          }
+        },
+        {
           "client_id": "722476780767-rr3lm6lnn4gngvokmcdtedot0ir04i0t.apps.googleusercontent.com",
           "client_type": 1,
           "android_info": {

@@ -18,6 +18,7 @@ import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
 import com.google.firebase.auth.AuthResult;
 import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.auth.FirebaseUser;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 
@@ -49,13 +50,14 @@ public class LoginActivity extends AppCompatActivity {
 
 
 
-        mAuthListener = new FirebaseAuth.AuthStateListener() {
+       mAuthListener = new FirebaseAuth.AuthStateListener() {
             @Override
             public void onAuthStateChanged(@NonNull FirebaseAuth firebaseAuth) {
-
+                FirebaseUser user = mAuth.getCurrentUser();
                 if(firebaseAuth.getCurrentUser() != null)
                 {
                     startActivity(new Intent(LoginActivity.this, HomeActivity.class));
+                    finish();
                 }
 
             }
@@ -112,11 +114,11 @@ public class LoginActivity extends AppCompatActivity {
 
         _loginButton.setEnabled(false);
 
-        final ProgressDialog progressDialog = new ProgressDialog(LoginActivity.this,
+      /*  final ProgressDialog progressDialog = new ProgressDialog(LoginActivity.this,
                 R.style.AppTheme_Dark_Dialog);
         progressDialog.setIndeterminate(true);
         progressDialog.setMessage("Authenticating...");
-        progressDialog.show();
+        progressDialog.show();*/
 
         String email = _emailText.getText().toString();
         String password = _passwordText.getText().toString();
@@ -142,40 +144,11 @@ public class LoginActivity extends AppCompatActivity {
 
         }
 
-
-
-
-
-
-
-
-       /* mAuth.signInWithCustomToken(mCustomToken)
-                .addOnCompleteListener(this, new OnCompleteListener<AuthResult>() {
-                    @Override
-                    public void onComplete(@NonNull Task<AuthResult> task) {
-                        if (task.isSuccessful()) {
-                            // Sign in success, update UI with the signed-in user's information
-                            Log.d(TAG, "signInWithCustomToken:success");
-                            FirebaseUser user = mAuth.getCurrentUser();
-                            updateUI(user);
-                        } else {
-                            // If sign in fails, display a message to the user.
-                            Log.w(TAG, "signInWithCustomToken:failure", task.getException());
-                            Toast.makeText(CustomAuthActivity.this, "Authentication failed.",
-                                    Toast.LENGTH_SHORT).show();
-                            updateUI(null);
-                        }
-                    }
-                });*/
-
-
-
-
         new android.os.Handler().postDelayed(
                 new Runnable() {
                     public void run() {
 
-                        progressDialog.dismiss();
+                       // progressDialog.dismiss();
 
 
                     }

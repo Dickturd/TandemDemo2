@@ -58,7 +58,7 @@ public class SetupActivity extends AppCompatActivity{
             public void onClick(View v) {
                 startSetupAccount();
                 startActivity( new Intent(SetupActivity.this, GetToKnowActivity.class));
-                finish();
+
                 overridePendingTransition(R.anim.push_left_in, R.anim.push_left_out);
             }
         });
@@ -100,6 +100,7 @@ public class SetupActivity extends AppCompatActivity{
 
 
                     mDatabaseUsers.child(user_id).child("image").setValue(downloadUrl.toString());
+
                 }
             });
 

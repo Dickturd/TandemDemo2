@@ -108,7 +108,7 @@ public class SignupActivity extends AppCompatActivity {
             @Override
             public void onDataChange(DataSnapshot dataSnapshot) {
                 if (dataSnapshot.exists()) {
-                    _signupButton.refreshDrawableState();
+
                     Toast.makeText(getBaseContext(), "Email already registered", Toast.LENGTH_LONG).show();
                     onSignupFailed();
                 }
